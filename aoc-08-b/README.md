@@ -1,0 +1,3 @@
+# Day 8 (Part 2)
+([AoC link](https://adventofcode.com/2023/day/8))
+This is a naïve "brute-force" solution which involves just running a bunch of simulations in parallel, letting each process record the times at which it reaches a valid finish node; when a process sees that it is the last one to reach a valid finish node at some given time, it sets a flag that causes all of the processes to terminate with the answer. Unfortunately, this does not run nearly fast enough to finish with the given problem input.

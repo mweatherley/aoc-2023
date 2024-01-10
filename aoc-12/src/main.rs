@@ -96,7 +96,7 @@ fn total_solutions(spring_problem: SpringProblem) -> u32 {
             return 0;
         }
     }
-    // If it's not empty, try to reduce it by looking at its enc
+    // If it's not empty, try to reduce it by looking at its end
     match try_reduce(&spring_problem) {
         ReductionResult::EmptyStates => {
             panic!("Tried to reduce an empty spring problem");

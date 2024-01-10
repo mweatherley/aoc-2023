@@ -1,0 +1,3 @@
+# Day 12 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/12))
+This solution is basically just naïvely recursive, although it's maybe not super-obvious in the code. The point is that you can mostly ignore the '.' tokens as you move backward; when you encounter a '#' you can try to match it with one of the blocks. However, if you first encounter '?' then you have to consider that it might be either of the two, and in this case the code just splits into considering the two universes where '?' is a '#' or '.'. As a result, this has worst-case exponential runtime. (This is all in `try_reduce`.)

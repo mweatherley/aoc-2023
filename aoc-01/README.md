@@ -1,0 +1,5 @@
+# Day 1
+([AoC link](https://adventofcode.com/2023/day/1))
+This problem was mostly for getting your feet wet, I think. For the first part, I just iterated over the characters and did the obvious thing. 
+
+The only real complication arises in Part 2, where you have to account for the possibility of overlap between number words — e.g. `fiveight` or `twone`, which should be respectively interpreted as 8 and 1. To do this, I kept a buffer holding the last five characters (all of the number words from one to nine have at most five characters) and matched its postfixes against the number words. I see now that I used a `VecDeque` for this, but that seems a little overkill, since a fixed-size structure would probably result in faster code (being on the stack and all). Maybe a `no_std` tool like a heapless queue implementation would have been a good choice.

@@ -1,0 +1,5 @@
+# Day 16 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/16))
+This solution implemented what is essentially a depth-first search to fill a map of light-filled locations, with the processes terminating when they reach a tile that has already been reached by a beam going the same direction. One nifty shortcut is that if you ever reach a splitter and actually use it, you will never have to enter that tile ever again for any reason (since all the directions you can leave it will be covered), which is what the `inundate` function is for. 
+
+This problem actually caused quite a headache for me, not because it was difficult but because there was a subtle error that took me a long time to debug. This arose because I was handling the beam directions incorrectly on ninety-degree turns, which is how the `old_direction` parameter got introduced to `run_beam`.

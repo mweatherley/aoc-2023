@@ -42,7 +42,7 @@ fn solve_problem(input: &str) -> i64 {
 
 fn predict(seq: &Vec<i64>) -> i64 {
     // Start by generating the list of 'derivative' sequences
-    let mut start_seq = seq.clone();
+    let start_seq = seq.clone();
     let mut last_seq: Vec<i64> = start_seq.clone();
     let mut diff_seqs: Vec<Vec<i64>> = vec![start_seq];
     loop {

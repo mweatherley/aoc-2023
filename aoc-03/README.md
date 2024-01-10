@@ -1,0 +1,6 @@
+# Day 3 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/3))
+This was one of the more interesting early problems. Since the numbers generally take up multiple grid spaces, parsing the input is a little more delicate than just filling a two-dimensional array and calling it a day. For the sake of trying to be efficient, I also decided to do this directly in one read-through of the problem input instead of having a separate parsing stage. As a result, the solution involves:
+- Using a state machine (type `ProblemState`) maintaining collections for the numbers (type `PartDatum`) and symbols (type `SymbolDatum`) on the current row along with symbols and "uncleared" numbers for the preceding row.
+- Parsing each row token-by-token into update data (`UpdateDatum`) for this state machine.
+- Consuming the update data, letting symbols on the current row clear parts on the same row along with the remaining uncleared parts for the preceding row, adding their values to the total along with advancing the state machine's cursor for continued parsing.

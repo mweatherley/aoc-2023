@@ -1,0 +1,7 @@
+# Day 24 (Part 2)
+([AoC link](https://adventofcode.com/2023/day/24))
+Part 2 is one of the more mathematical parts of 2023's Advent of Code. To solve this, I started by thinking about lines in space, arriving at the conclusion that four skew lines would have some finite number of lines that passed through all of them — in particular, using four skew lines from among the hailstone trajectories, the line through all of them can be found, and its actual trajectory can be computed by taking the actual collision times of a pair of hailstones with that line once it is found and then working backward.
+
+The directory here is a little disjointed: the main headache here was that the system of equations that you need to solve is not (*a priori*) linear, which means that I needed some kind of computer algebra (Gröbner bases etc.) to compute the intersection of varieties. For once, I ended up giving up and using SageMath for a few computations, which is why there are gaps in the Rust code. That is in the 'b2' and 'b3' directories. (The separation is laziness that has to do with whether `Value` needed to be rational or not; for some reason, the `Ratio` type didn't like holding the fixed-size big-integer types from `Bint`, so the rational stuff is in 'b3' with `Ratio<i128>`.)
+
+The "solution" in this directory is a quasi-brute-force algorithm which would eventually terminate and provide the correct line, at the very least. In practice, it's not fast enough on the actual input. 

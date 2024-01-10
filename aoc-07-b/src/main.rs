@@ -172,12 +172,3 @@ fn proj(vals: &(Hand, u64)) -> Hand {
     let (h, _) = vals;
     return *h;
 }
-
-// Testing
-fn sort_test() {
-    let cards_1 = ['4', '3', 'A', 'T', 'K'].map(|c| char_to_card(&c).unwrap());
-    let cards_2 = ['2', '4', 'J', 'Q', '5'].map(|c| char_to_card(&c).unwrap());
-    let mut my_vec = vec![cards_1, cards_2];
-    my_vec.sort(); // Lexicographic sorting between [Card; 5]
-    println!("My hand: {:?}", my_vec);
-}

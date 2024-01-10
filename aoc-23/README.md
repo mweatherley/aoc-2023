@@ -1,0 +1,5 @@
+# Day 23 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/23))
+This problem also has some sneaky input stuff going on. For starters, the '<' and '^' symbols are completely unused in the actual input data. Also, from the structure of the map, we can see that each path component (separated out by slopes) is guaranteed to be traversed in its entirety when it is reached.
+
+The latter observation compelled me to arrange everything as a graph where the slope-delimited paths (referred to as "segments" in the code) each comprise a node in the graph, marked with their lengths. The observations taken together guarantee that the graph is a DAG — since each node has outer valency of at most two and inner valency of one, the only way to enter a cycle would be if we started in one (which we obviously didn't). As a result, the algorithm I used to solve this was just a standard shortest-path algorithm for DAGs (negating the segment lengths as weights): `topological_sort` topologically sorts the nodes, and the loop in `solve_problem` performs progressive estimate relaxation in sorted order to find the best route.

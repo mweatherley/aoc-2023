@@ -128,7 +128,7 @@ fn problem_input(input: &str) -> IResult<&str, PipeMap> {
 /// We need to pass around shared mutable state between our parsers, which we do by
 /// 1) Using a struct ("parser object") to maintain the shared state of all of these parsers
 /// 2) Using methods that return parsers, allowing them to interoperate with `nom`
-/// 3) Locking the shared state in a `Cell` so that it can be "simultaneously" used by many parsers in a combinator
+/// 3) Locking the shared state in a `RefCell` so that it can be "simultaneously" used by many parsers in a combinator
 /// (Note: It is not actually used simultaneously at all, but the function calls cannot know that; they would just otherwise
 /// see something being mutably borrowed by the same function several times and freak out.)
 struct ProblemParser {
@@ -157,8 +157,8 @@ impl ProblemParser {
                     self.parse_blank_space(),
                     self.parse_newline(),
                 ))),
-                |_| (),
-            )(input) // Literally kill the output
+                |_| (), // Kill the output
+            )(input)
         }
     }
 

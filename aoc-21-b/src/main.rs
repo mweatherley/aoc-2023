@@ -361,11 +361,6 @@ fn tiles_within_range(
                 .collect::<Vec<_>>(),
         );
     }
-    // if wrap {
-    //     for node in node_data.iter() {
-    //         println!("{:?}", node);
-    //     }
-    // }
 
     return (white_tiles, black_tiles);
 }

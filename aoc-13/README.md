@@ -1,0 +1,3 @@
+# Day 13 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/13))
+Looks like I finally came to my senses and started parsing simple grids character-by-character. That's nice. The approach here is that every row or column has some set of indices about which it is symmetric by reflection. Therefore, to find a global symmetry by (say) horizontal reflection, we can just look at all of the legal indices for each row and take their intersection. This is what `find_vertical_reflection` and `find_horizontal_reflection` are doing.

@@ -1,0 +1,3 @@
+# Day 17 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/17))
+Ah, a pathfinding problem! I am pretty familiar with rephrasing things like this to make them tractable, so I found this pretty straightforward once I thought of incorporating the crucible restrictions into the definition of graph nodes. To compensate for making the end-node non-unique, I introduced a special 'END' node with zero-weight edges to all of the enriched end-states. The actual algorithm is just Dijkstra.

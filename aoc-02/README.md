@@ -1,0 +1,3 @@
+# Day 2
+([AoC link](https://adventofcode.com/2023/day/2))
+Here the problem is essentially just parsing, since the mathematics involved is more-or-less trivial. I used this as an opportunity to start learning a parser-combinator library for Rust (`nom`). It has pretty good ergonomics for things like this, and I generally prefer this approach over something like RegEx because it's more natural for parsing things directly into the types (and then structures) you're interested in. Interestingly, it appears that for the second part of this problem, I decided to just parse the answer directly from each line instead of computing it separately from structured data. 

@@ -1,0 +1,5 @@
+# Day 10 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/10))
+As a problem, this is not too challenging; Part 1 just asks you to find the furthest distance from the start in a pipe loop, which is pretty easy once you have parsed the input into a grid. In this case, I chose to use two threads, each going in one of the two directions and terminating when they meet; it's unclear that this is really any better than a single-threaded solution, but concurrency is fun, so I thought "why not?". 
+
+The other interesting thing in this file is maybe my attempt to integrate `nom` parser-combinators with shared state (to arguably limited success) in `ProblemParser`. This is really tremendously over-engineered, since just parsing character-by-character would be easier and more ergonomic for the task at hand. I guess I just really wanted to try it!

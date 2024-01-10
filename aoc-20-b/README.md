@@ -1,0 +1,5 @@
+# Day 20 (Part 2)
+([AoC link](https://adventofcode.com/2023/day/20))
+Like Day 8, it turns out that you are intended to solve Part 2 of this one by examining input for special features more than by actually writing code. This one was more fun to me since that aspect is more clearly telegraphed — the straightforward way of trying this will never terminate and the set of components provided by the problem is Turing-complete, so there is basically no hope of writing an algorithm which doesn't make tons of assumptions about the input anyway.
+
+That being said, the "solution" provided here doesn't really spit out the answer. Rather, I decomposed the given input and analyzed the parts by hand (it's a bunch of binary counters hooked up to fire a signal when they loop, and for the end condition to be met that needs to happen all at the same time), using the code in this section to verify the periods of each part.

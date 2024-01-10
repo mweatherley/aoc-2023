@@ -1,0 +1,3 @@
+# Day 3 (Part 2)
+([AoC link](https://adventofcode.com/2023/day/3))
+The whole idea of keeping track of only two lines goes out the window for this part, so I decided to reuse the whole `UpdateDatum` idea solely in parsing. After that, I just used a straightforward iteration over the 'gears' to compute their values and sum them. This could probably be further optimized by indexing the parts by their line number or something in a map rather than just keeping them in a vector, since it would drastically cut down the number of them you need to check for each gear. (On the other hand, this is not a performance-intensive problem, so I didn't bother.)

@@ -1,0 +1,5 @@
+# Day 4 (Part 2)
+([AoC link](https://adventofcode.com/2023/day/4))
+This is slightly spicier than the first part, since we recursively gain more and more scratchcards based on their matching value instead of scoring them directly. I used a `BTreeMap` to store the current data associated with each card type so that I could iterate over them in order; doing that, I used the value and current number of each card to update the numbers of held cards for subsequent numbers. 
+
+There is a little evil trick going on here, which is that I wrapped the data in a `Cell` in order to use interior mutability to trick the borrow checker into going along with this plan, since altering data as you iterate over it is an antipattern. Of course, these days I know better, and I would just iterate over indices and retrieve data inside the loop instead of iterating over the map itself, and this doesn't require double-borrowing the map in the first place.

@@ -1,0 +1,3 @@
+# Day 18 (Part 1)
+([AoC link](https://adventofcode.com/2023/day/18))
+This problem is pretty similar to Day 10. I decided to use the Shoelace formula this time to compute the area enclosed incrementally. The only hitch with this idea is that you need to understand how much volume is contributed near the boundary; intuitively, this is something like half the legnth of the boundary (half a tile on each side of a segment), but the corners throw it off by one (as in a square — four quarter-turns each throw the estimate off by 1/4 — the general result follows from an inductive argument based on this).

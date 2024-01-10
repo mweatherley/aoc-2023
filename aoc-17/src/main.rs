@@ -194,7 +194,6 @@ fn relax(estimates: &mut EstimateMap, state: Node, outgoing_edge: (Heat, Node)) 
     let (heat, next_state) = outgoing_edge;
     if !estimates.contains_key(&state) {
         return None;
-        // panic!("Tried to relax based on null data");
     }
     let state_data = *estimates.get(&state).unwrap();
     let next_state_data = estimates
